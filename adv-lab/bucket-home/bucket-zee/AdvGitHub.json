@@ -48,6 +48,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "3118bdaf-12c4-31ea-a5d4-9003e076ba01",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e3c1229c-ac29-39f6-8349-95688082a9f5",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "dividesByThree" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "9772ce52-bd1a-3f93-a886-d31a7728b093",
+        "name" : "RouteOnAttribute",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "9772ce52-bd1a-3f93-a886-d31a7728b093",
         "name" : "RouteOnAttribute",
         "type" : "PROCESSOR"
@@ -108,7 +138,15 @@
     "externalControllerServiceReferences" : { },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
-    "funnels" : [ ],
+    "funnels" : [ {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3118bdaf-12c4-31ea-a5d4-9003e076ba01",
+      "position" : {
+        "x" : -828.4999946272887,
+        "y" : 82.25000444620338
+      }
+    } ],
     "identifier" : "flow-contents-group",
     "inputPorts" : [ ],
     "labels" : [ ],
@@ -268,11 +306,19 @@
         "y" : -32.0
       },
       "properties" : {
+        "dividesByThree" : "${random1to10:mod(3):equals(0)}",
         "Routing Strategy" : "Route to Property name",
         "isEven" : "${random1to10:mod(2):equals(0)}",
         "isOdd" : "${random1to10:mod(2):equals(1)}"
       },
       "propertyDescriptors" : {
+        "dividesByThree" : {
+          "displayName" : "dividesByThree",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "dividesByThree",
+          "sensitive" : false
+        },
         "Routing Strategy" : {
           "displayName" : "Routing Strategy",
           "dynamic" : false,
