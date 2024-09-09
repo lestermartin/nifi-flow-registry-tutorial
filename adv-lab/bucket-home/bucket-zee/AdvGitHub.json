@@ -173,6 +173,7 @@
       "properties" : {
         "character-set" : "UTF-8",
         "File Size" : "0B",
+        "generate-ff-custom-text" : "Forgot this custom text value",
         "Batch Size" : "1",
         "Unique FlowFiles" : "false",
         "random1to10" : "${random():mod(10):plus(1)}",
